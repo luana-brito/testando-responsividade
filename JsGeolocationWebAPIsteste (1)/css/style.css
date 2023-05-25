@@ -1,0 +1,56 @@
+body {
+      background-color: #222;
+      color: #683CCE;
+      padding-top: 4em;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #map {
+      width: 100%;
+      height: 400px;
+      margin-top: 2em;
+    }
+
+    button {
+      color: #683CCE;
+      border-color: #5152CE;
+      display: block;
+      margin: 0 auto;
+    }
+
+
+
+
+/* Estilo referente ao menu superior*/
+header {
+  background-color: #222;
+  padding: 10px;
+  color: #683CCE;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #683CCE;
+}
+
+img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
