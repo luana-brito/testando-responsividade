@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geolocalização</title>
+  <title>Geolocalização com Mapa</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    #location {
+    #map {
+      width: 100%;
+      height: 400px;
       margin: 2em auto;
-      font-size: 1.5em;
-      font-weight: bold;
     }
 
     #error {
@@ -26,12 +26,31 @@
 </head>
 
 <body>
-  <h1>Geolocalização</h1>
+  <h1>Geolocalização com Mapa</h1>
+  <div id="map"></div>
   <button onclick="obterLocalizacao()">Obter Localização</button>
-  <div id="location"></div>
   <div id="error"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+
   <script>
+    let map;
+
+    function initMap(latitude, longitude) {
+      map = L.map('map').setView([latitude, longitude], 15);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        id: 'mapbox/dark-v10',
+        tileSize: 512,
+        zoomOffset: -1
+      }).addTo(map);
+
+      const marker = L.marker([latitude, longitude]).addTo(map);
+    }
+
     function obterLocalizacao() {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -39,8 +58,10 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            const locationElement = document.getElementById('location');
-            locationElement.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
+            const errorElement = document.getElementById('error');
+            errorElement.textContent = '';
+
+            initMap(latitude, longitude);
           },
           function (error) {
             const errorElement = document.getElementById('error');
