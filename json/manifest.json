@@ -1,21 +1,25 @@
 {
   "name": "Projeto N2",
-  "short_name": "Projeto N2",
-  "description": "Minha Localização",
-  "icons": [
-    {
-      "src": "icone.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icone.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
+  "short_name": "N2",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#222222"
+  "theme_color": "#222222",
+  "icons": [
+    {
+      "src": "../icones/icone32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "../icones/icone64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "../icones/icone128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
 }

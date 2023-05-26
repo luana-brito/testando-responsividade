@@ -35,8 +35,8 @@ function initMap(latitude, longitude) {
 
 
 // Configuração do Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
       .then(function(registration) {
         console.log('Service Worker registrado com sucesso:', registration);
       })
@@ -44,5 +44,4 @@ if ('serviceWorker' in navigator) {
         console.log('Falha ao registrar o Service Worker:', error);
       });
   }
-
 
